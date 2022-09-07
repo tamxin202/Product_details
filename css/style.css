@@ -377,8 +377,8 @@ ol {
 }
 .product-desc-count__input_group .button-minus,
 .product-desc-count__input_group .button-plus {
-  width: 38px;
-  height: 38px;
+  width: 22px;
+  height: 44px;
   padding: 0;
   position: relative;
   font-weight: bold;
@@ -398,24 +398,31 @@ input, textarea, select, button {
   display: flex;
   justify-content: space-between;
 }
-.btn-add{
+.btn-add, .btn-order{
   width: 235px;
   min-height: 48px;
   border-radius: 99px;
-  border: 1px solid rgba(203, 157, 55, 1);
+  padding: 11.5px 0px;
+  text-align: center;
+  font-family: var(--ff-Poppins);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-6);
+  line-height: 21px;
+letter-spacing: 0.05em;
+}
+.btn-add{
+  
+  border: 2px solid rgba(203, 157, 55, 1);
   background:  #F5F5F5;
   color: rgba(203, 157, 55, 1);
 
 }
 .btn-order{
-  width: 235px;
-  min-height: 48px;
-  border-radius: 99px;
   color:#FFFFFF;
   border: none;
  background: linear-gradient(86.15deg, #957327 0%, #DFC47A 100%);
-
 }
+
 .products__details--info{
   margin-top: 48px;
   max-width: 485px;
@@ -435,6 +442,42 @@ input, textarea, select, button {
 .products-info-classic, .products-info-ebony, .products-info-rose{
   margin: 24px 0;
 }
+
+/* Contact information */
+.contact-directly {
+  z-index: 1;
+  right: 16px;
+  bottom: 20px;
+  position: fixed;
+}
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact__info--mes, .contact__info--phone {
+  box-shadow: 4px 4px 16px 0px rgb(0 0 0 / 10%);
+  background: #FFFFFF;
+  font-size: 25px;
+  cursor: pointer;
+  transform: 0.4s;
+  max-width: 64px;
+  width: 4.444vw;
+  height: 4.444vw;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact__info--mes {
+  color: #357FFF;
+}
+.contact__info--phone {
+  color: #002A3A;
+}
+
 
 /* Warranty Policy */
 .product-content{
