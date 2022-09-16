@@ -2,6 +2,9 @@ html {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
   }
+html {
+  scroll-behavior: smooth;
+}
   
 * {
     margin: 0;
@@ -11,9 +14,9 @@ html {
     box-sizing: border-box;
     
   }
-  body::-webkit-scrollbar {
+  /* body::-webkit-scrollbar {
     display: none;
-  }
+  } */
 *,
 *:before,
 *:after {
@@ -82,7 +85,15 @@ ol {
     overflow: hidden;
     margin: 0 auto;
   }
-.myHeader{
+.header-scroll {
+  height: 90px !important;
+  background-color: #002A3A !important;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  transition: height 0.5s;
+}
+header{
     width: 100%;
     position: fixed; 
     top: 0;
@@ -90,9 +101,11 @@ ol {
     background-color: #00344C;
 }
 .header{
-    display: flex;
-    height: 102px;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 102px;
+  background-color: #00344C;
 }
 .header__logo{
   display: flex;
@@ -112,26 +125,27 @@ ol {
 .header__hamburger {
     display: none;
 }
-.header-nav{
+/* .header-nav{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .header__nav-list{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    /* gap: 48px; */
+    gap: 48px;
 
 }
 .header__list-item a{
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: var(--font-size-15);
+    font-weight: var(--font-weight-6);
     color: white;
+    letter-spacing: 0.04em;
 }
-.header__nav-list li:not(:nth-child(-1n+1)):not(:nth-last-child(-1n+1)) {
+/* .header__nav-list li:not(:nth-child(-1n+1)):not(:nth-last-child(-1n+1)) {
   margin: 0 24px;
 }
 .header__nav-list li:first-child{
@@ -139,15 +153,21 @@ ol {
 }
 .header__nav-list li:last-child{
   margin-left: 25px;
-}
+} */
+
+
 .list-item--borderright{
-  
-/* border: 1px solid #D8D8D8; */
-  margin: 0 8px;
   height: 20px;
-  /* width: 1px; */
+  width: 1px;
+  margin: 0 -18px;
+  color: #D8D8D8;
   background-color: #D8D8D8;
-  }  
+}  
+.header .header__list-item a:hover{
+  cursor: pointer;
+  transition: all 0.5s;
+  color: #B69046;
+}
 .cart-quantity{
     display: inline-block;
     width: 24px;
@@ -162,6 +182,65 @@ ol {
 .header__nav-list li:last-child span{
     margin-left: 8px;
   }
+.header__lang--list {
+  display: inline-block;
+}
+.header__lang--list:hover ul {
+  display: block;
+  position: absolute;
+}
+.header__lang--list .main-nav__lang--icon {
+  margin-left: 6px;
+  color: #FFFFFF;
+}
+.header__lang--option {
+  margin: 0;
+  padding: 0;
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  width: 155px;
+  border-radius: 5px;
+  border: 1px solid #f8f8f8;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.header__lang--detail {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  text-align: left;
+}
+.header__lang--list .main-nav__lang--link {
+  display: block;
+  width: 155px;
+  padding: 5px 2px;
+  color: #00344C;
+  text-decoration: none;
+}
+.header__lang--list .main-nav__lang--link::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.header .main-nav__lang--link.vi::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png");
+}
+.header .main-nav__lang--link.la::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/300px-Flag_of_the_United_Kingdom.svg.png");
+}
+.header .main-nav__lang--link.fr::before {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR8AAACwCAMAAAABtJrwAAAAbFBMVEX////tHSYtNokkLoVzfLPtFR/8/P8oNIgrN4nxTlU0RJT81truChitsNIXKIPsAA/7ra/1gYaDibghLIbsAACIj7yBh7j95uj1mJ0qPZEVI4LxSFAkNo4HHn9rdq/xREyztNfGydz87vD7u7lKisY3AAABYElEQVR4nO3QyYoCMRRAUTUO5dxtlfPc/v8/doGCheii5C0Ez12E8BJIOI2GJEn6kuaz0Bbj4P8tf2Nb1Xu+u85TXpbSfakOyjU93rhdue3zVD3cHIJ9hsUosum2ps+gl7XKsuta2b4YZM8G93upHe0zakbW6b/nExUfPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHDhw8fPnz48OHzlT67zSSy/SHap5hGVhxrvn8ax3YO9vn7ie0S/D9JkvTB/QPwKuJut5f+igAAAABJRU5ErkJggg==");
+}
+.header .main-nav__lang--link.ko::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Flag_of_South_Korea_%281945%E2%80%931948%29.svg/2560px-Flag_of_South_Korea_%281945%E2%80%931948%29.svg.png");
+}
   /* Product */
   .main-content{
     margin-top: 155px;
@@ -231,11 +310,6 @@ ol {
     width: 100%;
   }
 
-  /* .mySwiper {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  } */
    .mySwiper {
     margin-top: 18px;
     max-width: 540px;
@@ -281,7 +355,8 @@ ol {
 }
 
 .products__details{
-  margin-top: 50px
+  margin-top: 50px;
+  /* max-width: 485px; */
 }
 .products__name {
     font-family: var(--ff-roboto-condensed);
@@ -298,51 +373,63 @@ ol {
     line-height: 31px;
     letter-spacing: 0.025em;
 }
-.products__color--Classic {
-    font-family: var(--ff-Poppins);
-    font-size: var(--font-size-14);
-    font-weight: var(--font-weight-6);
-    line-height: 18px;
-    letter-spacing: 0em;
-}
-.products__color {
-    display: block;
-}
-.products__color--name {
-    display: flex;
-    gap: 45.25px;
-}
-.products__color--brand {
-    display: flex;
-    gap: 25px;
-}
-.products__color--Classic,.products__color--Rose,.products__color--Ebony{
-    position: relative;
-}
-.products__color--Classic::after,.products__color--Rose::after,.products__color--Ebony::after{
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 0%;
-    content:'.';
-    color: transparent;
-    /* background: linear-gradient(90deg, #BD369F -0.03%, rgba(117, 34, 99, 0.5) 108.05%); */
-    width:72.25px;
-    height: 4px;
-    border-radius: 15px;
 
+.products__details .products__filter {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 45.25px;
+  margin-top: 16px;
 }
-.products__color--Classic::after{
- background: linear-gradient(89.96deg, #4B4B4B 1.81%, #A1A1A1 74.47%, #8A8A8A 100.01%);  
+.filter__btn {
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--font-weight-4);
+  font-size: var(--font-size-14);
+  line-height: 130%;
+  color: #A5A5A5;
+  box-sizing: border-box;
 }
-.products__color--Ebony::after{
+.filter__btn.active {
+  font-family: var(--ff-Poppins);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-6);
+  line-height: 130%;
+  letter-spacing: 0em;
+  color: #001A31;
+}
+.filter__btn:nth-child(1)::after, .filter__btn:nth-child(2)::after, .filter__btn:nth-child(3)::after {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  content:'.';
+  color: transparent;
+  width:72.25px;
+  height: 4px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+.filter__btn:nth-child(1)::after {
+  background: linear-gradient(89.96deg, #4B4B4B 1.81%, #A1A1A1 74.47%, #8A8A8A 100.01%);
+}
+.filter__btn:nth-child(2)::after {
+  margin-right: -25px;
   background: linear-gradient(90deg, #1C1B1B -0.02%, #414141 67.2%, #2D2C2C 100.03%);
 }
-.products__color--Rose::after{
+.filter__btn:nth-child(3)::after {
   background: linear-gradient(90deg, #BD369F -0.03%, rgba(117, 34, 99, 0.5) 108.05%);
-
+}
+.filter__btn:hover {
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-14);
+  line-height: 130%;
+  color: #001A31;
 }
 .product-desc-count {
   display: flex;
@@ -458,30 +545,6 @@ input, textarea, select, button {
   color: #ffffff;
   transition: 0.3s;
 }
-/* .btn-add, .btn-order{
-  width: 235px;
-  min-height: 48px;
-  border-radius: 99px;
-  padding: 11.5px 0px;
-  text-align: center;
-  font-family: var(--ff-Poppins);
-  font-size: var(--font-size-14);
-  font-weight: var(--font-weight-6);
-  line-height: 21px;
-letter-spacing: 0.05em;
-} */
-/* .btn-add{
-  
-  border: 2px solid rgba(203, 157, 55, 1);
-  background:  #F5F5F5;
-  color: rgba(203, 157, 55, 1);
-
-}
-.btn-order{
-  color:#FFFFFF;
-  border: none;
- background: linear-gradient(86.15deg, #957327 0%, #DFC47A 100%);
-} */
 
 .products__details--info{
   margin-top: 48px;
@@ -805,9 +868,9 @@ ol.product-content__heading > li {
 .footer-menu-nav {
   display: flex;
   justify-content: center;
-  font-size: 14px;
+  font-size: var(--font-size-14);
   line-height: 21px;
-  font-weight: 400;
+  font-weight: var(--font-weight-4);
 }
 
 

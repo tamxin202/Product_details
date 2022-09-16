@@ -23,24 +23,25 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <title>Product details </title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
   <div class="wrapper">
-    <div class="myHeader">
+    <header id="header-scrollBar">
       <div class="container">
-        <header class="header">
+        <div id="header" class="header">
           <div class="header__logo">
             <a href="#">
-              <img src="images/logo.png" alt="Logoshop" /></a>
+              <img id="header__logo" src="images/logo.png" alt="Logoshop" /></a>
           </div>
-          <div class="header__hamburger">
+          <div id="mobile-menu" class="header__hamburger">
             <div class="bars1"></div>
             <div class="bars2"></div>
             <div class="bars3"></div>
           </div>
-          <nav id="header-nav" class="header-nav js-mobile-menu">
-            <ul class="header__nav-list">
+          <nav id="header-nav" class="header-nav">
+            <ul class="header__nav-list" id="header__nav-list">
               <li class="header__list-item"><a href="">About us</a></li>
 
               <li class="header__list-item"><a href="">Brands</a></li>
@@ -49,21 +50,40 @@
 
               <li class="header__list-item"><a href="">Dealer</a></li>
 
-              <li class="header__list-item"><a href="">Customer services</a></li>
+              <li class="header__list-item"><a href="">Customer Services</a></li>
 
-              <li class="header__list-item"><a href="">Contact us</a></li>
-              <hr class="list-item--borderright">
-              </hr>
+              <li class="header__list-item"><a href="">Contact Us</a></li>
+              <div class="list-item--borderright"></div>
 
               <li class="header__list-item"><a href="">My cart <span class="cart-quantity">3</span></a></li>
 
-              <li class="header__list-item"><a href=""><img src="images/Languages.png" alt="">
-                  <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a></li>
+              <li class="header__list-item">
+                <ul class="header__lang">
+                  <li class="header__lang--list">
+                      <img src="images/Languages.png" alt="">
+                      <i class="fa fa-chevron-down main-nav__lang--icon" aria-hidden="true"></i>
+                      <ul class="header__lang--option">
+                          <li class="header__lang--detail">
+                              <a href="" class="vi main-nav__lang--link">Vietnamese</a>
+                          </li>
+                          <li class="header__lang--detail">
+                              <a href="" class="la main-nav__lang--link">English</a>
+                          </li>
+                          <li class="header__lang--detail">
+                              <a href="" class="fr main-nav__lang--link">French</a>
+                          </li>
+                          <li class="header__lang--detail">
+                              <a href="" class="ko main-nav__lang--link">Korea</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+              </li>
             </ul>
           </nav>
-        </header>
+        </div>
       </div>
-
+    </header>
     </div>
     <section class="main-content">
       <div class="container">
@@ -145,14 +165,12 @@
           <div class="products__details">
             <h3 class="products__name">XOR Titanium Collection</h3>
             <p class="products__prices">đ 99,000,000</p>
-            <div class="products__color">
-              <div class="products__color--name">
-                <span class="products__color--Classic">Classic </span>
-                <span class="products__color--Ebony">Ebony</span>
-                <span class="products__color--Rose">Rose</span>
-              </div>
+            <div class="products__filter">
+                <button class="filter__btn active">Classic </button>
+                <button class="filter__btn">Ebony</button>
+                <button class="filter__btn">Rose</button>
             </div>
-            <!-- <div class="product-count"> -->
+          
               <div class="product-desc-count">
                 <span>Quantity</span>
                 <div class="product-desc-count__input_group">
@@ -171,8 +189,6 @@
                 <span class="btn__overlay"></span>
                 <span class="btn__text">Order Now</span>
               </button>
-                <!-- <button class="btn-add">Add To Cart</button>
-                <a class="btn-order" href="#">Order Now</a> -->
             </div>
              <div class="products__details--info">
               <div class="products-info-classic">
@@ -356,14 +372,13 @@
       <div class="container">
         <div class="collection-heading">
           <h1>Other Collections</h1>
-      </div>
+        </div>
 
-      <div class="collection-wrapper">
+        <div class="collection-wrapper">
           <div class="collection-card">
               <div class="collection-card__img">
                   <img src="./images/Rectangle 649.png"" alt="">
               </div>
-
               <div class=" collection-card__title">
                   <h5>XOR <span>Bespoke</span></h5>
               </div>
@@ -381,7 +396,6 @@
       </div>
     </div>
     </section>   
-  </div>
    
     <footer class="footer">
 			<div class="footer-schedule">
@@ -429,8 +443,8 @@
 		  </footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script src="js/slider.js"></script>
-  <script src="js/addProduct.js"></script>
+  <script src="js/main.js"></script>
+  
 </body>
 
 </html>
